@@ -1,0 +1,27 @@
+doctype html
+head
+  meta(charset='UTF-8')
+  meta(name='viewport', content='width=device-width, initial-scale=1.0')
+  meta(http-equiv='X-UA-Compatible', content='ie=edge')
+  script(src='https://kit.fontawesome.com/5a38a8d524.js', crossorigin='anonymous')
+  link(rel='stylesheet', href='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css', integrity='sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T', crossorigin='anonymous')
+  link(rel='stylesheet', href='/auth/sign-up.css')
+  title Sign up
+.sign_up-container
+  .br
+    .box-sign
+      h1 Create Account
+        .d
+      if errors
+        each error in errors
+          .alert.alert-danger= error
+      form.form-signup(action="/auth/sign-up", method="POST")
+        .input-name
+          input.field.field-txt(type='text', name='firstName', placeholder='First Name')
+          input.field.field-txt(type='text', name='lastName', placeholder='Last Name')
+        input.field.cent(type='text', name='email', placeholder='Your Email')
+        input.field.cent(type='text', name='phone', placeholder='Phone Number')
+        input.field.cent(type='password', name='password', placeholder='Password')
+        button.btn SIGN UP
+      p.smk
+        i.fas.fa-book-open

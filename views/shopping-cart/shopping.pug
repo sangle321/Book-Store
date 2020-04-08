@@ -1,0 +1,106 @@
+doctype html
+head
+  meta(charset='UTF-8')
+  meta(name='viewport', content='width=device-width, initial-scale=1.0')
+  title BookStore
+  link(rel='stylesheet', href='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css', integrity='sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T', crossorigin='anonymous')
+  meta(http-equiv='X-UA-Compatible', content='ie=edge')
+  script(src='https://kit.fontawesome.com/5a38a8d524.js', crossorigin='anonymous')
+  script(href="http://localhost:3000/layouts/jquery-slide-show.js")
+  script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js')
+  script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js')
+  link(rel="stylesheet", href='/products/style.css')
+  link(rel='stylesheet', href='/layouts/common.css')
+  link(rel='stylesheet', href='/shopping-cart/style.css')
+  block script
+
+body
+  .main-container
+    .region.region-header
+      // form search
+      .search-box
+        input.search-txt(type='text', placeholder='Tìm kiếm...')
+        button.btn-search(type='button')
+          i.fas.fa-search.fa-2x
+      // List navbar
+      ul.list.list-header
+        li.list-item
+          a(href='/auth/login') &Dstrok;&abreve;ng nh&#x1EAD;p / 
+        li.list-item
+          a(href='/auth/sign-up') &Dstrok;&abreve;ng k&yacute; | 
+        li.list-item
+          a(href='')
+            i.fas.fa-shopping-cart.fa-2x
+            if session.cart
+              span.qty= session.cart.totalQty
+    .under
+    section.menu-bar
+      #nav-toggle.menu-content
+        ul.list.list-bar
+          li.list-item.list-active
+            a(href='/product') Trang ch&#x1EE7;
+          li.list-item.list-child
+            a(href='http://') S&aacute;ch
+            ul.nav-item-drop
+              li
+                a.item(href='#') S&aacute;ch m&#x1EDB;i
+              li
+                a.item(href='#') S&aacute;ch theo ch&#x1EE7; &dstrok;&#x1EC1;
+              li
+                a.item(href='#!') Wings Book
+              li
+                a.item(href='#!') Khuy&#x1EBF;n m&atilde;i
+          li.list-item.list-child
+            a(href='http://')
+              img.logo(src='http://localhost:3000/images/layout/logo.png', width='70', height='50')
+          li.list-item.list-child
+            a(href='http://') S&#x1EA3;n ph&#x1EA9;m
+          li.list-item.list-child
+            a(href='http://') Gi&#x1EDB;i thi&#x1EC7;u
+            ul.nav-item-drop
+              li
+                a.item(href='#') Gi&#x1EDB;i thi&#x1EC7;u NXB 
+              li
+                a.item(href='#') T&aacute;c gi&#x1EA3; - T&aacute;c ph&#x1EA9;m
+              li
+                a.item(href='#!') C&ocirc;ng t&aacute;c x&atilde; h&#x1ED9;i
+              li
+                a.item(href='#!') H&#x1EE3;p t&aacute;c qu&#x1ED1;c t&#x1EBF;
+
+    h2.title Shopping Cart
+    if products
+      .container.pt-3
+        .cart.page
+          ul.list-group
+          each product in products
+            li.list-group-item.clearfix
+              .row.item.align-items-center
+                .col-xs-5.col-lg-5.col-md-5 
+                  img.mr-2(src=product.item.image, width='60', height='60')
+                  strong=product.item.title
+                .col-xs-2.col-lg-2.col-md-2.text-right
+                  span Số lượng: 
+                  span.badge= product.qty
+                .col-xs-3.col-lg-3.col-md-3.text-right
+                  span Giá: 
+                  span.badge= product.price
+                .col-xs-2.col-lg-2.col-md-2.text-right
+                  a.btn.btn-danger.p-2(href='cart/remove/'+ product.item._id)  Remove
+        if totalPrice !== 0
+          .text-right.item
+            span Total: 
+              strong= totalPrice
+                span  $
+          hr
+          .text-right
+            a.btn.btn-success.p-3(href='/check-out', type='button') Checkout
+        else 
+          .container
+            h1 Your shopping cart is empty.
+    else 
+        .container
+          h1 Your shopping cart is empty.
+
+
+
+          

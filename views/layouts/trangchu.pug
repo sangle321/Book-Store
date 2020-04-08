@@ -1,0 +1,157 @@
+doctype html
+head
+  meta(charset='UTF-8')
+  meta(name='viewport', content='width=device-width, initial-scale=1.0')
+  title BookStore
+  link(rel='stylesheet', href='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css', integrity='sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T', crossorigin='anonymous')
+  meta(http-equiv='X-UA-Compatible', content='ie=edge')
+  script(src='https://kit.fontawesome.com/5a38a8d524.js', crossorigin='anonymous')
+  script(src="http://localhost:3000/layouts/jquery-slide-show.js")
+  script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js')
+  script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js')
+  link(rel="stylesheet", href='/products/style.css')
+  link(rel='stylesheet', href='/layouts/common.css')
+  sc
+  block script
+
+body
+  .main-container
+    .region.region-header
+      // form search
+      .search-box
+        form(action="/search" method="GET")
+          input.search-txt(type='text' name="q" placeholder='Tìm kiếm...')
+          button.btn-search(type='submit' value="Search")
+            i.fas.fa-search.fa-2x
+      // List navbar
+      ul.list.list-header
+        li.list-item
+          a(href='/auth/login') &Dstrok;&abreve;ng nh&#x1EAD;p / 
+        li.list-item
+          a(href='/auth/sign-up') &Dstrok;&abreve;ng k&yacute; | 
+        li.list-item
+          a(href='/cart')
+            i.fas.fa-shopping-cart.fa-2x
+            if session.cart
+                span.qty= session.cart.totalQty
+        li.list-item.pl-4
+          a(href='/auth/profile')
+            i.fas.fa-user.fa-2x
+    .under
+    // Menu bar.
+    //- .col-10.ml-sm-auto.px-4
+    //- if successes
+    //-   each success in successes
+    //-     .alert.alert-success= success 
+    //- if errors
+    //-   each error, i in errors
+    //-     div.alert.alert-danger= error
+    //- //
+    section.menu-bar
+      #nav-toggle.menu-content
+        ul.list.list-bar
+          li.list-item.list-active
+            a(href='/product') Trang ch&#x1EE7;
+          li.list-item.list-child
+            a(href='http://') S&aacute;ch
+            ul.nav-item-drop
+              li
+                a.item(href='/product/sach-moi') Sách
+              li
+                a.item(href='#') S&aacute;ch theo ch&#x1EE7; &dstrok;&#x1EC1;
+              li
+                a.item(href='#!') Wings Book
+              li
+                a.item(href='#!') Khuy&#x1EBF;n m&atilde;i
+          li.list-item.list-child
+            a(href='http://')
+              img.logo(src='http://localhost:3000/images/layout/logo.png', width='70', height='50')
+          li.list-item.list-child
+            a(href='http://') S&#x1EA3;n ph&#x1EA9;m
+          li.list-item.list-child
+            a(href='http://') Gi&#x1EDB;i thi&#x1EC7;u
+            ul.nav-item-drop
+              li
+                a.item(href='#') Gi&#x1EDB;i thi&#x1EC7;u NXB 
+              li
+                a.item(href='http://localhost:3000/tac-gia') T&aacute;c gi&#x1EA3; - T&aacute;c ph&#x1EA9;m
+              li
+                a.item(href='#!') C&ocirc;ng t&aacute;c x&atilde; h&#x1ED9;i
+              li
+                a.item(href='#!') H&#x1EE3;p t&aacute;c qu&#x1ED1;c t&#x1EBF;
+        .flash
+          if successes
+            each success in successes
+              .alert.alert-success= success 
+          if errors
+            each error, i in errors
+              div.alert.alert-danger= error
+          
+    // slider
+    .slider-container
+      .slide-introduce
+        img(src='http://localhost:3000/images/layout/decrip.jpg')
+        img(src='http://localhost:3000/images/layout/decip2.jpg')
+      .slider
+        .arrows
+          a.previous(href='#') &#xF053;
+          a.next(href='#') &#xF054;
+        .slides
+          .slide.active.slide-1(data-icon='')
+          .slide.slide-2(data-icon='')
+          .slide.slide-3(data-icon='')
+        .bullets
+      .slide-introduce
+        img(src='http://localhost:3000/images/layout/decip3.jpg')
+        img(src='http://localhost:3000/images/layout/decip4.jpg')
+  block content
+  //block content
+  // Footer
+  footer
+    .container-fluid.footer-container
+      .service
+        h2.title-footer D&#x1ECB;ch v&#x1EE5;
+        ul.menu
+          li.list-foot
+            a &Dstrok;i&#x1EC1;u kho&#x1EA3;n s&#x1EED; d&#x1EE5;ng
+          li.list-foot
+            a Ch&iacute;nh s&aacute;ch b&#x1EA3;o m&#x1EAD;t
+          li.list-foot
+            a Li&ecirc;n h&#x1EC7;
+          li.list-foot
+            a H&#x1EC7; th&#x1ED1;ng nh&agrave; s&aacute;ch
+      .help
+        h2.title-footer H&#x1ED7; tr&#x1EE3;
+        ul.menu
+          li.list-foot
+            a C&aacute;ch th&#x1EE9;c mua h&agrave;ng
+          li.list-foot
+            a Ph&#x1B0;&#x1A1;ng th&#x1EE9;c v&#x1EAD;n chuy&#x1EC3;n
+          li.list-foot
+            a Ph&#x1B0;&#x1A1;ng th&#x1EE9;c thanh to&aacute;n
+          li.list-foot
+            a Ch&iacute;nh s&aacute;ch &dstrok;&#x1ED5;i tr&#x1EA3;
+      .acount
+        h2.title-footer T&agrave;i kho&#x1EA3;n c&#x1EE7;a t&ocirc;i
+        ul.menu
+          li.list-foot
+            a &Dstrok;&abreve;ng Nh&#x1EAD;p
+          li.list-foot
+            a T&#x1EA1;o m&#x1EDB;i t&agrave;i kho&#x1EA3;n
+      .owner
+        h2.title-footer Ch&#x1EE7; s&#x1EDF; h&#x1EEF;u
+        ul.menu
+          li.list-foot Nh&agrave; xu&#x1EA5;t b&#x1EA3;n kim &dstrok;&#x1ED3;ng
+          li.list-foot Gi&aacute;m &dstrok;&#x1ED1;c: Ph&#x1EA1;m Quang Vinh
+          li.list-foot &Dstrok;&#x1ECB;a ch&#x1EC9;: 55 Quang Trung, Nguy&#x1EC5;n Du, Hai B&agrave; Tr&#x1B0;ng, H&agrave; N&#x1ED9;i
+          li.list-foot
+            a &Dstrok;i&#x1EC7;n tho&#x1EA1;i: 0234 943 4490
+          li.list-foot
+            a Email: info@nxbkimdong.com.vn
+    .Copyright
+      p &copy; 2019 Copyright, All Rights Reserved
+    script(src="http://localhost:3000/layouts/jquery-slide-show.js")
+  block footer
+
+
+    

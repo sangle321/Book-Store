@@ -1,0 +1,107 @@
+extends ../layouts/trangchu 
+
+block script
+    link(rel="stylesheet", href="/products/style.css")
+    title Sang
+
+block content
+    .product.container
+        .new-book
+            h2.block-title
+                a.block-title-link(href='/sach-moi') Sách mới
+            .row
+                each product in products
+                    .col-sm-6.col-md-6.col-lg-3
+                        .card
+                            .card-img-top.text-center.card-sytle
+                                img.img-responsive.rounded(src= product.image width=150 height=185)
+                            .card-body
+                                ul.list__content
+                                    a(href='')
+                                        li.childd.tittle= product.title
+                                    li.childd.mb-1= product.author
+                                    li.childd.child-con= product.price
+                                        span  $
+                                        a(href='cart/add/'+ product._id)
+                                            p.p-2.btn-add Add to Cart
+    .container-fluid.p-0
+        .block-simple-new
+            h1.title-new Đăng kí email nhận thông tin
+            form.pt-2
+                input.input-new(type= text name= email placeholder="Email của bạn")
+                button.btn-new Đăng kí
+
+    .product.container
+        .new-book
+            h2.block-title
+                a.block-title-link(href='') Combo
+            .row
+                each combo in combos
+                        .col-sm-6.col-md-6.col-lg-3
+                            .card
+                                .card-img-top.text-center.card-sytle
+                                    img.img-responsive.rounded(src= combo.image width=150 height=185)
+                                .card-body
+                                    ul.list__content
+                                        a(href='')
+                                            li.childd.tittle= combo.title
+                                        li.childd.mb-1= combo.author
+                                        li.childd.child-con= combo.price
+                                            span  $
+                                            a(href='cart/add/'+ combo._id)
+                                                p.p-2.btn-add Add to Cart
+                                            
+    .bg-seo
+        img(src='http://localhost:3000/images/layout/bg-manga.jpg')
+
+    .product.container
+        .new-book
+            h2.block-title
+                a.block-title-link(href='') COMIC - MANGA
+            .row
+                each manga in mangas
+                        .col-sm-6.col-md-6.col-lg-3
+                            .card
+                                .card-img-top.text-center.card-sytle
+                                    img.img-responsive.rounded(src= manga.image width=150 height=185)
+                                .card-body
+                                    ul.list__content
+                                        a(href='')
+                                            li.childd.tittle= manga.title
+                                        li.childd.mb-1= manga.author
+                                        li.childd.child-con= manga.price
+                                            span  $
+                                            a(href='cart/add/'+ manga._id)
+                                                p.p-2.btn-add Add to Cart
+                                            
+    .bg-seo 
+        img(src='http://localhost:3000/images/layout/bg-doremon.png')
+
+    .product.container
+        .new-book
+            h2.block-title
+                a.block-title-link(href='') DORAEMON
+            .row
+                each dore in doremons
+                        .col-sm-6.col-md-6.col-lg-3
+                            .card
+                                .card-img-top.text-center.card-sytle
+                                    img.img-responsive.rounded(src= dore.image width=150 height=185)
+                                .card-body
+                                    ul.list__content
+                                        a(href='')
+                                            li.childd.tittle= dore.title
+                                        li.childd.mb-1= dore.author
+                                        li.childd.child-con= dore.price
+                                            span  $
+                                            a(href='cart/add/'+ dore._id)
+                                                p.p-2.btn-add Add to Cart
+                                            
+    .bg-seo
+        img(src='http://localhost:3000/images/layout/bg-dult.png')
+    script.
+        $(document).ready(function(){
+        $('[data-toggle="tooltip"]').tooltip();
+        });
+
+block footer

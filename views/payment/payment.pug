@@ -1,0 +1,43 @@
+doctype html
+head
+  meta(charset='UTF-8')
+  meta(name='viewport', content='width=device-width, initial-scale=1.0')
+  meta(http-equiv='X-UA-Compatible', content='ie=edge')
+  title Payment
+  link(rel='stylesheet', href='https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css', integrity='sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh', crossorigin='anonymous')
+  link(rel='stylesheet', href='/payment/style.css')
+// Header
+.header.pt-4
+  .container
+    #firstRow.row.mr-1
+      .col-md-6
+        h1#firstH1 Danh Sách
+
+// Main
+.main
+  .container.pt-3.pb-3
+    form(role='form' action="/pay" method='post' id="checkout-form")
+      // First row: name and credit card number
+      .row
+        .container
+          each product in products
+            .row
+                p.pl-5
+                  strong= product.item.title
+                span='  ( '
+                span= product.item.author 
+                span=' ) '
+      .header.p-2
+          #firstRow.row
+            .col-md-6
+              h1#firstH1 Tổng: 
+                span= totalPrice
+                span.pr-3= ' $'
+                button.btn.btn-large.btn-default.pull-right(type='submit' value='Buy') Thanh Toán
+    .row.pt-3
+        .col-md-4
+          img(src='http://storage.j0.hn/credit-card-logos.png', width='175', height='35', border='0')
+.footer
+  .container
+    h5 &copy; PayPal
+script(src="http://localhost:3000/payment/checkout.js")

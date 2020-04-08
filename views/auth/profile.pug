@@ -1,0 +1,71 @@
+doctype html
+head
+  meta(charset='UTF-8')
+  meta(name='viewport', content='width=device-width, initial-scale=1.0')
+  title BookStore
+  link(rel='stylesheet', href='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css', integrity='sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T', crossorigin='anonymous')
+  meta(http-equiv='X-UA-Compatible', content='ie=edge')
+  script(src='https://kit.fontawesome.com/5a38a8d524.js', crossorigin='anonymous')
+  script(src="http://localhost:3000/layouts/jquery-slide-show.js")
+  script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js')
+  script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js')
+  link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css', integrity='sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u', crossorigin='anonymous')
+  link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css', integrity='sha384-XdYbMnZ/QjLh6iI4ogqCTaIjrFk87ip+ekIjefZch0Y+PvJ8CDYtEs1ipDmPorQ+', crossorigin='anonymous')
+  link(rel="stylesheet", href='/products/style.css')
+  link(rel='stylesheet', href='/layouts/common.css')
+  sc
+  block script
+
+body
+  .main-container
+    .region.region-header
+      // form search
+      .search-box
+        input.search-txt(type='text', placeholder='Tìm kiếm...')
+        button.btn-search(type='button')
+          i.fas.fa-search.fa-2x
+      // List navbar
+      ul.list.list-header
+        li.list-item
+          a(href='/auth/login') &Dstrok;&abreve;ng nh&#x1EAD;p / 
+        li.list-item
+          a(href='/auth/sign-up') &Dstrok;&abreve;ng k&yacute; | 
+        li.list-item
+          a(href='/cart')
+            i.fas.fa-shopping-cart.fa-2x
+            if session.cart
+                span.qty= session.cart.totalQty
+        li.list-item.pl-4
+          a(href='/auth/profile')
+            i.far.fa-paper-plane.fa-2x
+            if orders 
+              span.qtyy= orders.length
+    .under
+    .row 
+      h1.hi Hello 
+        span=name
+          | !
+    if orders.length != 0
+      .row
+        .col-md-8.col-md-offset-2
+          h2 Đơn hàng của bạn
+          each order in orders
+            .panel.panel-default
+              .panel-body
+                ul.list-group
+                each od in order.items
+                  li.list-group-item
+                    span.badge= od.price 
+                    span=od.item.title
+                    span='  ('
+                    span=od.qty
+                    span=')'
+              .panel-footer
+                strong= 'Tổng: '
+                strong.pr-3= order.cart.totalPrice
+                  |  $
+                button.btn.btn-danger= 'Đang vận chuyển'
+    else
+      .row
+        h2.pl-5.ml-5 Hiện tại bạn không có đơn hàng nào !
+      

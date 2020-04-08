@@ -1,0 +1,163 @@
+:root {
+    --primary: #70c6a6;
+    --heading: #353738;
+    --text: #848789;
+    --input-border: #d3d7d9;
+    --input-text: #929292;
+    --bg-light: #f7f7f7;
+    --bg-dark: #1a1c28;
+  }
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Utilities */
+.lead-heading {
+    font-size: 5rem;
+    color: var(--bg-light);
+    font-style: italic;
+    font-weight: 600;
+}
+
+/* End Utilites*/
+
+html {
+    font-size: 62.5%;
+    font-family: 'Poppins', sans-serif;
+}
+
+#Navbar {
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    min-height: 8rem;
+    background: var(--bg-light);
+    font-size: 1.5rem;
+    opacity: 1;
+}
+
+.logo {
+    text-transform: uppercase;
+    color: var(--text);
+    letter-spacing: 3px;
+    font-size: 2rem;
+}
+
+.logo-color {
+    font-size: 2.5rem;
+    color: var(--primary);
+}
+
+.nav-links {
+    display: flex;
+    justify-content: space-around;
+    width: 35%;
+    color: var(--text);
+}
+
+.nav-links li {
+    list-style: none;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--bg-light);
+    font-size: 1.4rem;
+    font-weight: bold;
+    letter-spacing: 3px;
+    color: var(--text);
+}
+
+.nav-links a:hover {
+    color: var(--primary);
+}
+
+.burger {
+    display: none;
+    cursor: pointer;
+}
+
+.burger div {
+    width: 2.5rem;
+    height: .3rem;
+    background:  var(--text);
+    margin: .5rem;
+}
+
+/* End Of Navbar */
+
+/* Header title */
+#showcase {
+    background: #333 url(/images/layout/show-case.jpeg)no-repeat  center center/cover;
+    color: #fff;
+    height: 100vh;
+    margin-bottom: 2rem;
+}
+
+#showcase .showcase-content {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    height: 100%;
+    position: absolute;
+    width: 100%;
+    top: 8rem;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, .4);
+}
+
+
+
+/* End of Title */
+#product {
+    padding: 4rem 0;
+}
+
+.product-content {
+    padding: 1rem 5rem;
+}
+
+.text-heading {
+    align-items: center;
+    font-weight: bold;
+    color: var(--text);
+}
+
+/* end product */
+#about-author {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+}
+.about-img img {
+    border-radius:50%;
+    -moz-border-radius:50%;
+    -webkit-border-radius:50%;
+}
+
+.about-content {
+    display: flex;
+    margin: 2rem 2rem;
+}
+
+.about-title {
+    margin-left: 4rem;
+}
+
+.social {
+    list-style: none;
+    align-items: center;
+}
+
+.social li {
+    padding-left: 1rem;
+}
+
+

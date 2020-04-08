@@ -1,0 +1,30 @@
+extends ../layouts/trangchu 
+
+block script
+    link(rel="stylesheet", href="/products/style.css")
+    title Sang
+
+block content
+    .product.container
+        .new-book
+            h2.block-title
+                a.block-title-link(href='') Sách mới
+            .row
+                each newbook in newbooks
+                    .col-sm-6.col-md-6.col-lg-3
+                        .card
+                            .card-img-top.text-center.card-sytle
+                                img.img-responsive.rounded(src= newbook.image width=150 height=185)
+                            .card-body
+                                ul.list__content
+                                    a(href='')
+                                        li.childd.tittle= newbook.title
+                                    li.childd.mb-1= newbook.author
+                                    li.childd.child-con= newbook.price
+                                        span  $
+                                        a(href='cart/add/'+ newbook._id)
+                                            p.p-2.btn-add Add to Cart
+
+
+
+block footer

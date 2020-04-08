@@ -1,0 +1,44 @@
+.container {
+    background-color: #dedede;
+    }
+ .form-group {
+   margin-top: 10px;
+   padding-top: 10px;
+   font-size: 18px;
+   font-family: sans-serif;
+ }
+ 
+ #firstH1 {
+   margin-left: 20px;
+   color: #03a9f4;
+ }
+ #secondH1 {
+   color: #fff;
+   text-align: center;
+ }
+ 
+ #payment {
+   background-color: #8bc34a;
+   padding: 5px 30px;
+ }
+ h5 {
+   color: #03a9f4;
+   text-transform: uppercase;
+   margin-top: 10px;
+   padding: 15px 10px;
+ }
+ .btn {
+   background-color: #03a9f4;
+   color: #fff;
+   border: 2px bold;
+   margin-bottom: 10px;
+ }
+ .under {
+  border-bottom: .5px solid #bcbec0;
+  width: 80%;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+  margin-top: 30px
+ }
+ 

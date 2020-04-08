@@ -1,0 +1,85 @@
+doctype html
+head
+  meta(charset='UTF-8')
+  meta(name='viewport', content='width=device-width, initial-scale=1.0')
+  title BookStore
+  link(rel='stylesheet', href='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css', integrity='sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T', crossorigin='anonymous')
+  meta(http-equiv='X-UA-Compatible', content='ie=edge')
+  script(src='https://kit.fontawesome.com/5a38a8d524.js', crossorigin='anonymous')
+  script(src="http://localhost:3000/layouts/jquery-slide-show.js")
+  script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js')
+  script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js')
+  link(rel="stylesheet", href='/products/style.css')
+  link(rel='stylesheet', href='/layouts/common.css')
+  sc
+  block script
+
+body
+  .main-container
+    .region.region-header
+      // form search
+      .search-box
+        form(action="/search" method="GET")
+          input.search-txt(type='text' name="q" placeholder='Tìm kiếm...')
+          button.btn-search(type='submit' value="Search")
+            i.fas.fa-search.fa-2x
+      // List navbar
+      ul.list.list-header
+        li.list-item
+          a(href='/auth/login') &Dstrok;&abreve;ng nh&#x1EAD;p / 
+        li.list-item
+          a(href='/auth/sign-up') &Dstrok;&abreve;ng k&yacute; | 
+        li.list-item
+          a(href='/cart')
+            i.fas.fa-shopping-cart.fa-2x
+            if session.cart
+                span.qty= session.cart.totalQty
+        li.list-item.pl-4
+          a(href='/auth/profile')
+            i.fas.fa-user.fa-2x
+    .under
+    .menu.st
+      if products.length == 0
+        i.fas.fa-exclamation-circle.font-weight-bold
+          span.font-italic= 'Không tìm thấy sách có tên là '
+          span.text-monospace.text-capitalize.text-primary= name
+          span= '  !!! . Tìm kiếm có liên quan... '
+        .product.container
+          .row
+            each product in differentProducts
+              .col-sm-6.col-md-6.col-lg-3
+                  .card
+                      .card-img-top.text-center.card-sytle
+                          img.img-responsive.rounded(src= product.image width=150 height=185)
+                      .card-body
+                          ul.list__content
+                              a(href='')
+                                  li.childd.tittle= product.title
+                              li.childd.mb-1= product.author
+                              li.childd.child-con= product.price
+                                  span  $
+                                  a(href='cart/add/'+ product._id)
+                                      p.p-2.btn-add Add to Cart   
+      else
+        i.fas.fa-check-circle.m-2
+          span.font-italic= 'Có '
+          span.text-monospace.text-primary= products.length
+          span= ' kết quả tìm kiếm ! Từ khóa tìm kiếm là '
+          span.text-monospace.text-primary= name     
+      .product.container
+        .row
+            each product in products
+                .col-sm-6.col-md-6.col-lg-3
+                    .card
+                        .card-img-top.text-center.card-sytle
+                            img.img-responsive.rounded(src= product.image width=150 height=185)
+                        .card-body
+                            ul.list__content
+                                a(href='')
+                                    li.childd.tittle= product.title
+                                li.childd.mb-1= product.author
+                                li.childd.child-con= product.price
+                                    span  $
+                                    a(href='cart/add/'+ product._id)
+                                        p.p-2.btn-add Add to Cart
+    

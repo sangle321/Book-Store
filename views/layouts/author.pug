@@ -1,0 +1,96 @@
+head
+  meta(charset='UTF-8')
+  meta(name='viewport', content='width=device-width, initial-scale=1.0')
+  title BookStore
+  link(rel='stylesheet', href='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css', integrity='sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T', crossorigin='anonymous')
+  meta(http-equiv='X-UA-Compatible', content='ie=edge')
+  script(src='https://kit.fontawesome.com/5a38a8d524.js', crossorigin='anonymous')
+  script(src="http://localhost:3000/layouts/jquery-slide-show.js")
+  script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js')
+  script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js')
+  link(rel="stylesheet", href='/layouts/style.author.css')
+  link(rel='stylesheet', href='/layouts/common.css')
+  sc
+  block script
+
+body
+  .main-container
+    .region.region-header
+      // form search
+      .search-box
+        input.search-txt(type='text', placeholder='Tìm kiếm...')
+        button.btn-search(type='button')
+          i.fas.fa-search.fa-2x
+      // List navbar
+      ul.list.list-header
+        li.list-item
+          a(href='/auth/login') &Dstrok;&abreve;ng nh&#x1EAD;p / 
+        li.list-item
+          a(href='/auth/sign-up') &Dstrok;&abreve;ng k&yacute; | 
+        li.list-item
+          a(href='/cart')
+            i.fas.fa-shopping-cart.fa-2x
+            if session.cart
+                span.qty= session.cart.totalQty
+        li.list-item.pl-4
+          a(href='/auth/profile')
+            i.fas.fa-user.fa-2x
+    .under
+    .container
+        h2.block-title.pt-3 TÁC GIẢ
+        .row
+            each author in authors
+                .col-xs-12.col-md-6.col-sm-6.pt-3
+                    .horizontal.card-.p-3
+                        .card-image
+                            img.fadeIn(src=author.image, width='278', height='207')
+                            .card-stacked
+                        .card-content.pl-5
+                            h5.card-title= author.name
+                            .underr
+                            span.span-b
+                                p=author.title
+            script(src='index.js')
+footer
+    .container-fluid.footer-container
+      .service
+        h2.title-footer D&#x1ECB;ch v&#x1EE5;
+        ul.menu
+          li.list-foot
+            a &Dstrok;i&#x1EC1;u kho&#x1EA3;n s&#x1EED; d&#x1EE5;ng
+          li.list-foot
+            a Ch&iacute;nh s&aacute;ch b&#x1EA3;o m&#x1EAD;t
+          li.list-foot
+            a Li&ecirc;n h&#x1EC7;
+          li.list-foot
+            a H&#x1EC7; th&#x1ED1;ng nh&agrave; s&aacute;ch
+      .help
+        h2.title-footer H&#x1ED7; tr&#x1EE3;
+        ul.menu
+          li.list-foot
+            a C&aacute;ch th&#x1EE9;c mua h&agrave;ng
+          li.list-foot
+            a Ph&#x1B0;&#x1A1;ng th&#x1EE9;c v&#x1EAD;n chuy&#x1EC3;n
+          li.list-foot
+            a Ph&#x1B0;&#x1A1;ng th&#x1EE9;c thanh to&aacute;n
+          li.list-foot
+            a Ch&iacute;nh s&aacute;ch &dstrok;&#x1ED5;i tr&#x1EA3;
+      .acount
+        h2.title-footer T&agrave;i kho&#x1EA3;n c&#x1EE7;a t&ocirc;i
+        ul.menu
+          li.list-foot
+            a &Dstrok;&abreve;ng Nh&#x1EAD;p
+          li.list-foot
+            a T&#x1EA1;o m&#x1EDB;i t&agrave;i kho&#x1EA3;n
+      .owner
+        h2.title-footer Ch&#x1EE7; s&#x1EDF; h&#x1EEF;u
+        ul.menu
+          li.list-foot Nh&agrave; xu&#x1EA5;t b&#x1EA3;n kim &dstrok;&#x1ED3;ng
+          li.list-foot Gi&aacute;m &dstrok;&#x1ED1;c: Ph&#x1EA1;m Quang Vinh
+          li.list-foot &Dstrok;&#x1ECB;a ch&#x1EC9;: 55 Quang Trung, Nguy&#x1EC5;n Du, Hai B&agrave; Tr&#x1B0;ng, H&agrave; N&#x1ED9;i
+          li.list-foot
+            a &Dstrok;i&#x1EC7;n tho&#x1EA1;i: 0234 943 4490
+          li.list-foot
+            a Email: info@nxbkimdong.com.vn
+    .Copyright
+      p &copy; 2019 Copyright, All Rights Reserved
